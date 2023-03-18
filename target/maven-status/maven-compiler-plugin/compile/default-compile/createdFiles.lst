@@ -1,2 +1,3 @@
 org\firstplugin\killmeikillu\CommandLoader.class
 org\firstplugin\killmeikillu\commands\hello.class
+org\firstplugin\killmeikillu\commands\help.class

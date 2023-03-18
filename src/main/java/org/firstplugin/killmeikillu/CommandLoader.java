@@ -21,11 +21,10 @@ public class CommandLoader {
                 try {
                     Class<?> clazz = Class.forName("org.firstplugin.killmeikillu.commands." + className);
                     if (CommandExecutor.class.isAssignableFrom(clazz)) {
-                        PluginCommand command = Bukkit.getServer().getPluginCommand(clazz.getSimpleName().toLowerCase());
-                        if (command == null) {
-                            command = Bukkit.getServer().getPluginCommand(className.toLowerCase());
-                        }
+                        String commandName = "ikill" + className.toLowerCase();
+                        PluginCommand command = Bukkit.getServer().getPluginCommand(commandName);
                         if (command != null) {
+                            command.setName(commandName); // add prefix to command name
                             command.setExecutor((CommandExecutor) clazz.getConstructor().newInstance());
                         }
                     }
