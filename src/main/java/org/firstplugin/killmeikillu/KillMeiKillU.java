@@ -8,22 +8,20 @@ public final class KillMeiKillU extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+
+        //Loads commands
+        this.getCommand("hello").setExecutor(new hello());
+
+        //Output
 
         System.out.println("My first plugin");
 
-        // Load commands
-        try {
-            CommandLoader.loadCommands(this);
-        } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            throw new RuntimeException(e);
-        }
 
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-        System.out.println("stoped");
+        System.out.println("stopped");
     }
 }
