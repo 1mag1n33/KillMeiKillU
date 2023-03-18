@@ -4,6 +4,10 @@ main: org.firstplugin.killmeikillu.KillMeiKillU
 api-version: 1.19
 
 commands:
-    hello:
-      description: says hello
-      usage: /hello
+  KMKU:
+    description: 'Main command for the KillMeiKillU plugin'
+    usage: '/KMKU <subcommand>'
+    aliases: ['KillMeiKillU']
+  hello:
+    description: 'Say hello to the world!'
+    usage: '/KMKU hello'

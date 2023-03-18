@@ -6,17 +6,21 @@ import java.lang.reflect.InvocationTargetException;
 
 public final class KillMeiKillU extends JavaPlugin {
 
+    private String commandPrefix = "/KMKU"; // Set the command prefix
+
     @Override
     public void onEnable() {
+        getLogger().info("KillMeiKillU is enabled!");
 
-        //Loads commands
-        this.getCommand("hello").setExecutor(new hello());
+        // Register commands
+        getCommand("KMKU").setExecutor(new BaseCommand());
+        getCommand("KMKU").setTabCompleter(new BaseCommand());
+        getCommand("hello").setExecutor(new hello());
+    }
 
-        //Output
-
-        System.out.println("My first plugin");
-
-
+    // Get the command prefix
+    public String getCommandPrefix() {
+        return commandPrefix;
     }
 
     @Override
