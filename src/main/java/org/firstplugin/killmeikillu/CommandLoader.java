@@ -11,25 +11,28 @@ import java.util.Objects;
 public class CommandLoader {
 
     public static void loadCommands(Plugin plugin) {
-        File commandsFolder = new File(plugin.getDataFolder(), "commands");
-        if (!commandsFolder.exists()) {
-            commandsFolder.mkdirs();
+        String packageName = plugin.getName() + ".Commands";
+        File packageFolder = new File(plugin.getDataFolder(), "Commands");
+        if (!packageFolder.exists()) {
+            packageFolder.mkdir();
         }
-        for (File file : Objects.requireNonNull(commandsFolder.listFiles())) {
-            if (file.isFile() && file.getName().endsWith(".java")) {
-                String className = file.getName().substring(0, file.getName().lastIndexOf("."));
-                try {
-                    Class<?> clazz = Class.forName("org.firstplugin.killmeikillu.commands." + className);
-                    if (CommandExecutor.class.isAssignableFrom(clazz)) {
-                        String commandName = "ikill" + className.toLowerCase();
-                        PluginCommand command = Bukkit.getServer().getPluginCommand(commandName);
-                        if (command != null) {
-                            command.setName(commandName); // add prefix to command name
-                            command.setExecutor((CommandExecutor) clazz.getConstructor().newInstance());
+
+        File[] files = packageFolder.listFiles();
+        if (files != null) {
+            for (File file : files) {
+                if (file.isFile() && file.getName().endsWith(".class")) {
+                    String className = file.getName().substring(0, file.getName().lastIndexOf("."));
+                    try {
+                        Class<?> clazz = Class.forName(packageName + "." + className);
+                        if (CommandExecutor.class.isAssignableFrom(clazz)) {
+                            PluginCommand command = Bukkit.getServer().getPluginCommand(className.toLowerCase());
+                            if (command != null) {
+                                command.setExecutor((CommandExecutor) clazz.getConstructor().newInstance());
+                            }
                         }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
             }
         }
