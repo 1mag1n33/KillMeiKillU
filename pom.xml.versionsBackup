@@ -6,7 +6,7 @@
 
     <groupId>org.firstplugin</groupId>
     <artifactId>KillMeiKillU</artifactId>
-    <version>1</version>
+    <version>${project.version}</version>
     <packaging>jar</packaging>
 
     <name>KillMeiKillU</name>

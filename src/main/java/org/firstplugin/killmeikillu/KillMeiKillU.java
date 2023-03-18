@@ -10,6 +10,9 @@ public final class KillMeiKillU extends JavaPlugin {
 
         System.out.println("My first plugin");
 
+        // Load commands
+        CommandLoader.loadCommands(this);
+
     }
 
     @Override
