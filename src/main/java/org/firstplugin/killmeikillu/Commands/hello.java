@@ -9,7 +9,16 @@ public class hello implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        // Your command logic goes here
+
+
+        public void onEnable() {
+            // Register the "hello" command
+            PluginCommand commands = getCommand("hello");
+            if (command != null) {
+                command.setExecutor(new hello());
+            }
+        }
+
         sender.sendMessage("Hello, world!");
 
         return true;

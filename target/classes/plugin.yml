@@ -2,3 +2,8 @@ name: KillMeiKillU
 version: '0.0.2'
 main: org.firstplugin.killmeikillu.KillMeiKillU
 api-version: 1.19
+
+commands:
+    hello:
+      description: says hello
+      usage: /hello

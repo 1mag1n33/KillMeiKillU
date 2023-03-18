@@ -2,6 +2,8 @@ package org.firstplugin.killmeikillu;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.lang.reflect.InvocationTargetException;
+
 public final class KillMeiKillU extends JavaPlugin {
 
     @Override
@@ -11,7 +13,11 @@ public final class KillMeiKillU extends JavaPlugin {
         System.out.println("My first plugin");
 
         // Load commands
-        CommandLoader.loadCommands(this);
+        try {
+            CommandLoader.loadCommands(this);
+        } catch (NoSuchMethodException | IllegalAccessException | InstantiationException | InvocationTargetException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 
