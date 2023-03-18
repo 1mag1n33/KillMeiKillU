@@ -1,0 +1,4 @@
+name: KillMeiKillU
+version: '${project.version}'
+main: org.firstplugin.killmeikillu.KillMeiKillU
+api-version: 1.19
