@@ -1,4 +1,4 @@
-package org.firstplugin.killmeikillu;
+package org.firstplugin.killmeikillu.Commands;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;

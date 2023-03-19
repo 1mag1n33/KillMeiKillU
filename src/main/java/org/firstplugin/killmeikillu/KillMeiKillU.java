@@ -2,15 +2,12 @@ package org.firstplugin.killmeikillu;
 
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Objects;
-
 public final class KillMeiKillU extends JavaPlugin {
 
 
     @Override
     public void onEnable() {
         getLogger().info("KillMeiKillU is enabled!");
-
         getCommand("kmku").setExecutor(new BaseCommand());
     }
 

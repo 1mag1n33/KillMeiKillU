@@ -14,3 +14,7 @@ commands:
         description: Says hello
         usage: /kmku hello
         permission: killmeikillu.hello
+      help:
+        description: List all of the subcommands
+        usage: /kmku help
+        permission: killmeikillu.help
