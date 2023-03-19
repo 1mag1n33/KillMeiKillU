@@ -1,13 +1,16 @@
 name: KillMeiKillU
-version: '0.0.2'
+version: 1.0
 main: org.firstplugin.killmeikillu.KillMeiKillU
 api-version: 1.19
-
 commands:
-  KMKU:
-    description: 'Main command for the KillMeiKillU plugin'
-    usage: '/KMKU <subcommand>'
-    aliases: ['KillMeiKillU']
-  hello:
-    description: 'Say hello to the world!'
-    usage: '/KMKU hello'
+  kmku:
+    description: KillMeiKillU main command
+    usage: /kmku <subcommand> [args]
+    aliases: [killmeikillu]
+    permission: killmeikillu.base
+    permission-message: You do not have permission to use this command.
+    subcommands:
+      hello:
+        description: Says hello
+        usage: /kmku hello
+        permission: killmeikillu.hello
