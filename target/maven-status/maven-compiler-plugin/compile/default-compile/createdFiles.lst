@@ -1,3 +1,5 @@
 org\firstplugin\killmeikillu\BaseCommand.class
 org\firstplugin\killmeikillu\help.class
 org\firstplugin\killmeikillu\hello.class
+org\firstplugin\killmeikillu\KillAll.class
+org\firstplugin\killmeikillu\KillAllOnDeath.class

@@ -24,6 +24,8 @@ public class BaseCommand implements CommandExecutor, TabCompleter {
                 return new hello().onCommand(sender, command, label, Arrays.copyOfRange(args, 1, args.length));
             case "help":
                 return new help().onCommand(sender, command, label, Arrays.copyOfRange(args, 1, args.length));
+            case "Target":
+                return new KillAll().onCommand(sender, command, label, Arrays.copyOfRange(args, 1, args.length));
             default:
                 sender.sendMessage("Unknown subcommand: " + args[0]);
                 sender.sendMessage("Type /kmku help for a list of subcommands.");
@@ -34,7 +36,7 @@ public class BaseCommand implements CommandExecutor, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
         if (args.length == 1) {
-            return Arrays.asList("hello","help");
+            return Arrays.asList("hello","help","Target");
         }
         return Collections.emptyList();
     }
